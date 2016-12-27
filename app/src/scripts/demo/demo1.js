@@ -1,0 +1,81 @@
+var myApp=angular.module('myApp',['ui.router']);
+
+myApp.config(function($stateProvider){
+	$stateProvider
+		.state('home',{
+			url:'/home',
+			templateUrl:'/app/src/scripts/tpls1/home.html',
+			controller:'homeController'
+		})
+		.state('list',{
+			url:'/list',
+			templateUrl:'/app/src/scripts/tpls1/list.html',
+			controller:'listController'
+		})
+		.state('find',{
+			url:'/find/:id/:name',
+			templateUrl:'/app/src/scripts/tpls1/find.html',
+			controller:'findController'
+		})
+		.state('my',{
+			url:'/my',
+			templateUrl:'/app/src/scripts/tpls1/my.html',
+			controller:'myController'
+		})
+		.state('set',{
+			url:'/set',
+			templateUrl:'/app/src/scripts/tpls1/set.html',
+			controller:'setController'
+		})
+})
+
+myApp.controller('homeController',['$scope',function($scope){}])
+myApp.controller('listController',['$scope',function($scope){
+	$scope.items=[
+		{
+			type:'电子产品',
+			data:'1年内',
+			products:['手机','笔记本电脑','吹风机','台式机电脑']
+		},
+		{
+			type:'厨房用品',
+			products:['电饭煲','电烤箱','电炒锅'],
+			data:'2年内'
+		},
+		{
+			type:'小家电',
+			products:['小风扇','运动水壶','加湿器'],
+			data:'半年内'
+		},
+		{
+			type:'生活用品',
+			products:['金属用品','水晶工艺','玻璃工艺品','钱包钱夹','清洁套装'],
+			data:'3个月'
+		},
+		{
+			type:'家用电器',
+			products:['电视机','电冰箱','全自动洗衣机'],
+			data:'1年半'
+		}
+	]
+}])
+myApp.controller('findController',['$scope','$routeParams','$http',function($scope,$routeParams,$http){
+	$scope.msg='欢迎来到  find  页面';
+	//$routeParams  这个对象用于接收路由传递的参数
+	var id=$routeParams.id,
+		name=$routeParams.name,
+		datas=null;
+	$http({
+		url:'api/getLivelist.php',
+		method:'post',
+		data:{
+			id:$routeParams.id,
+			name:$routeParams.name
+		}
+	}).then(function(result){
+		datas = result.data.data;
+		$scope.datas=datas;
+	})
+}])
+myApp.controller('myController',['$scope',function($scope){}])
+myApp.controller('setController',['$scope',function($scope){}])

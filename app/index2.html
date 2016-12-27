@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" ng-app='myApp'>
+<head>
+	<meta charset="UTF-8" >
+	<title>Document</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<link rel="stylesheet" href="./prd/styles/app-36dea772e1.css">
+</head>
+<body>
+	<div class='routApp'>
+		<div class="rotu_top"></div>
+		<div class="content">
+			<div class="right">
+				<div class="container">
+					<h1>欢迎来到后台管理系统</h1>
+					<div ng-view></div>
+				</div>
+			</div>
+			<div class="left">
+				<nav>
+					<a href="#/home">首页</a>
+					<a href="#/list">分类</a>
+					<a href="#/find/99/'xinxi'">发现</a>
+					<a href="#/my">我的</a>
+					<a href="#/set">设置</a>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<!-- <div ng-controller='countryController as countryCon'>
+			 {{countryCon.name}}
+				<div ng-controller='provinceController as provinceCon'>
+				{{countryCon.name}} - {{provinceCon.name}}
+				<div ng-controller='cityController as cityCon'>
+					{{countryCon.name}} - {{provinceCon.name}} - {{cityCon.name}}
+				</div>
+				</div>
+	</div> -->
+	<script src='./libs/angular/angular.min.js'></script>
+	<script src='./libs/angular-route.min.js'></script>
+	<script src='./libs/jquery-1.11.1.min.js'></script>
+	<script src='./src/scripts/demo/demo1.js'></script>	
+</body>
+</html>

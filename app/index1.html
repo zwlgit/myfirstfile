@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en" ng-app='myApp'>
+<head>
+	<meta charset="UTF-8" >
+	<title>Document</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<link rel="stylesheet" href="./prd/styles/app-36dea772e1.css">
+</head>
+<body>
+	<!-- demo1 -->
+	<!-- <div ng-controller='demoCon'>
+		你输入的值是：
+		<p>姓名是：{{user[0].name}} - - - email:{{user[0].email}}</p>
+		<p>姓名是：{{user[1].name}} - - - email:{{user[1].email}}</p>
+	</div> -->
+	<!-- demo2 -->
+	<!-- <div ng-controller='demoCon'>
+		<ul>
+			<li ng-repeat='item in user'>
+				<span>姓名是：{{item.name}}</span>
+				<span>邮箱是：{{item.email}}</span>
+			</li>
+		</ul>
+	</div> -->
+	<!-- demo3 -->
+	<!-- <div ng-controller='demoCon'>
+		<p ng-show='isShow'>是否显示？</p>
+		<p ng-hide='isHide'>是否隐藏？</p>
+		<p ng-if='isShow'>通过ng-if来显示或者隐藏</p>
+	</div> -->
+	<!-- demo4 -->
+	<!-- <div ng-controller='demoCon'>
+		<input type="text"  ng-model='counter'>
+		<input type="button" value='+' ng-click='add()'>
+		<p ng-bind='counter'></p>
+	</div> -->
+	<!-- demo5 -->
+	<!-- <div ng-controller='demoCon'>
+		<label for="">请输入您该兴趣的项目？</label>
+		<input type="text" placeholder='请输入您感兴趣的项目？' ng-model='item' ng-keyup='addItem($event)'>
+		<ul>
+			<li ng-repeat='item in items track by $index'>
+				{{item}}
+			</li>
+		</ul>
+	</div> -->
+	<!-- demo6 -->
+	<div ng-controller='demoCon' class='main none'>
+		<!-- <p ng-bind='price | currency:"￥"'></p>
+		<p>{{price | currency:'人民币￥'}}</p> -->
+		<ul>
+			<!-- <li ng-repeat='book in books | limitTo:2'> -->
+			<li ng-repeat='book in books | orderBy:"updated" |limitTo:4'>
+				<p><span ng-class="{'title':book.publite}">{{book.name}}</span></p>
+				<!-- <span ng-bind="book.updated | date:'YYYY年MM月dd日'"></span> -->
+				<p>{{book.updated | date:'yyyy年MM月dd日 HH:mm'}}</p>
+				<p ng-class="{true:'enable',false:'disable'}[book.ishas]">有货</p>
+			</li>
+		</ul>
+		<div class="search">
+			<p><input type="text" ng-model='searchText'></p>
+			<table border='1'>
+				<thead>
+					<tr>
+						<td>ID</td>
+						<td>name</td>
+						<td>phone</td>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- <tr ng-repeat='item in friends | filter:searchText'> -->
+					<tr ng-repeat='item in friends | filter:search:value'>
+						<td>{{$index+1}}</td>
+						<td>{{item.name}}</td>
+						<td>{{item.phone}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div ng-controller='demo2' class='work none'>
+		<div class='top'>
+			<p>
+				<input type="text" placeholder='search firstName' ng-model='firstText'>
+			</p>
+			<p>
+				<input type="text" placeholder='search lastName' ng-model='lastText'>
+			</p>
+			<p><input type="checkbox">Exac Match</p>
+		</div>
+		<table border='0'>
+			<thead>
+				<tr id='list'>
+					<td ng-click="setSort('first')">
+						FirstName
+						<span ng-class="getClass('first')"></span>
+					</td>
+					<td ng-click="setSort('last')">
+						LastName
+						<span ng-class="getClass('last')"></span>
+					</td>
+					<td ng-click="setSort('gen')">
+						Gender
+						<span ng-class="getClass('gen')"></span>
+					</td>
+					<td ng-click="setSort('salary')">
+						Salary
+						<span ng-class="getClass('salary')"></span>
+					</td>
+					<td ng-click="setSort('salarys')">
+						Salary
+						<span ng-class="getClass('salarys')"></span>
+					</td>
+					<td ng-click="setSort('birthday')">
+						Birthday
+						<span ng-class="getClass('birthday')"></span>
+					</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in userInfo | filter:give:value | orderBy:setColumn:sortReverse">
+					<td>{{user.first}}</td>
+					<td>{{user.last}}</td>
+					<td>{{user.gen}}</td>
+					<td>{{user.salary | currency:''}}</td>
+					<td>{{user.salarys | currency:'￥'}}</td>
+					<td>{{user.birthday | date:'yyyy-MM-dd'}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div ng-controller='myController' class='game none'>
+		<p ng-click="gameStart()">游戏开始</p>
+		<p ng-click="gameOver()">游戏结束</p>
+	</div>
+	<div ng-controller='showController' class='info none'>
+		<p>
+			{{user.id}} / {{user.name}}  / {{user.email}} / {{user.sex | gender}}
+		</p>
+		<label>请输入ID:<input type="text" ng-model='id'></label><br>
+		<label>请输入name:<input type="text" ng-model='name'></label><br>
+		<label>请输入email:<input type="text" ng-model='email'></label><br>
+		<label>请输入您的性别：
+			<input type="radio" name='sex' checked>男
+			<input type="radio" name='sex'>女
+		</label>
+		<p ng-click="getSave()">点击保存</p>
+
+		{{types}}  {{names}}
+	</div>
+	<div ng-controller='myTemplate' class='none'>
+		<select ng-model='template'>
+			<option value="{{template}}">frame</option>
+			<option value="/app/src/scripts/tpls/prame1.string">frame1</option>
+			<option value="/app/src/scripts/tpls/prame2.string">frame2</option>
+		</select>
+		<p ng-include='template'></p>
+		{{types}}  {{names}}
+	</div>
+	<div ng-controller='routApp' class='routApp'>
+		{{1+1}}
+		<div class="rotu_top"></div>
+		<div class="content">
+			<div class="right">
+				<div class="container"></div>
+				<div>
+					<div ng-view></div>
+				</div>
+			</div>
+			<div class="left">
+				<nav>
+					<a href="#/home">首页</a>
+					<a href="#/list">分类</a>
+					<a href="#/find">发现</a>
+					<a href="#/my">我的</a>
+					<a href="#set">设置</a>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<script src='./libs/angular/angular.min.js'></script>
+	<script src='./libs/angular-route.min.js'></script>
+	<script src='./libs/jquery-1.11.1.min.js'></script>
+	<script src='./prd/scripts/app-a23bf968b6.js'></script>	
+</body>
+</html>

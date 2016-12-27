@@ -1,0 +1,165 @@
+@import './common/reset';
+*{
+	margin:0;
+	padding:0;
+}
+ul,li{
+	list-style: none;
+}
+body{
+	width:100%;
+	height:100%;
+	div{
+		font-size:.14rem;
+	}
+}
+html{
+	font-size:100px;
+}
+.title{
+	color:red;
+	font-weight: bold;
+}
+.enable{
+	font-weight:bold;
+}
+.disable{
+	color:#cccccc;
+	text-decoration:line-through;
+}
+.main{
+	font-size:.16rem;
+	display: none;
+}
+.search{
+	margin:0 .3rem 0 .15rem;
+	>p{
+		padding:.1rem;
+	}
+	input{
+		width:2.4rem;
+		height:.3rem;
+		-webkit-appearance:none;
+	}
+	table{
+		width:100%;
+		border-collapse: collapse;
+		border:1px solid #000;
+	}
+	td{
+		text-align: center;
+		line-height:.3rem;
+	}
+	thead{
+		td{
+			font-weight: bold;
+			font-size: .18rem;
+		}
+	}
+}
+.work{	
+	margin:0 .2rem 0 .05rem;
+	font-size:.14rem;
+	color:#000;
+	display: none;
+	table{
+		width:100%;
+		font-size:.14rem;
+		border-collapse: collapse;	
+	}
+	td{
+		border:1px solid #000;
+		text-align: center;
+	}
+	.top{
+		padding:.2rem 0;
+		p{
+			display:inline-block;
+		}
+	}
+	thead{
+		tr{
+			letter-spacing:1px;
+		}
+	}
+}
+.up{
+	width:0;
+	height:0;
+	border-left:4px solid transparent;
+	border-right:4px solid transparent;
+	border-bottom:8px solid #000;
+	display: inline-block;
+}
+.down{
+	width:0;
+	height:0;
+	border-left:4px solid transparent;
+	border-right:4px solid transparent;
+	border-top:8px solid #000;
+	display: inline-block;
+
+}
+.game{
+	display: none;
+}
+
+.none{
+	display:none;
+}
+.routApp{
+	width:100%;
+	height:900px;
+	.rotu_top{
+		width:100%;
+		height:100px;
+		background:orange;
+	}
+	.content{
+		width:100%;
+		height:400px;
+		.right{
+			width:100%;
+			height:400px;
+			background:#f0acac;
+			float: left;
+			.container{
+				padding-left:330px;
+				img{
+					width:150px;
+					height:150px;
+				}
+				span{
+					display: inline-block;
+					padding-right:5px;
+				}
+				.list_list li{
+					margin-bottom:3px;
+				}
+			}
+		}
+		.left{
+			width:300px;
+			height:400px;
+			background:#ccc;
+			float: left;
+			margin-left:-100%;
+			nav{
+				padding:30px 10px 0 30px;
+				a{
+					text-decoration:none;
+					display: block;
+					height:30px;
+					line-height:30px;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+}
+
+
+
+.bg{
+	color:red;
+}

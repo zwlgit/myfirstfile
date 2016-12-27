@@ -1,0 +1,14 @@
+<div>
+	欢迎来到  my  页面
+	<div>
+		请输入搜索关键字：<input type="text" ng-model='serviceCon.search'>
+		<input type="button" value='搜索' ng-click="serviceCon.toSearch()">
+	</div>
+	<ul>
+		<li ng-repeat="item in serviceCon.serviceListDate">
+			产品 ID:{{item.id}} //  
+			产品分类：<a ng-href="#/service/:{{item.id}}">{{item.title}}</a>
+		</li>
+	</ul>
+	<button ng-click="serviceCon.reloadDate()">重新载入</button>
+</div>
