@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	   *{margin: 0;padding:0;}
+	   ul,li{list-style: none;}
+	   #pic{width:906px; height: 324px; margin: 20px auto; border:1px solid red; overflow:hidden;}
+	   #pic ul li img{width:906px;  height: 324px}
+	   #pic ul{width:4530px; }
+	   #pic ul li{float: left;width:906px;}
+	</style>
+</head>
+<body>
+	<div id="pic">
+			<ul>
+				<li><img src="pic2/1.jpg" alt=""></li>
+				<li><img src="pic2/2.jpg" alt=""></li>
+				<li><img src="pic2/3.jpg" alt=""></li>
+				<li><img src="pic2/4.jpg" alt=""></li>
+			</ul>
+	</div>
+	<script  src='move.js'></script>
+	<script>
+      var ul=document.getElementById('pic').getElementsByTagName('ul'),
+          lis=ul[0].getElementsByTagName("li");
+
+	var i=0;
+      function  auto(){
+       i++
+       if(i>3){
+         newLi= lis[0].cloneNode(true)
+         ul[0].appendChild(newLi)
+       var  lis1=document.getElementsByTagName('ul')[0].getElementsByTagName("li")
+         startMove(ul[0],-4*906,"marginLeft",function(){
+         	 ul[0].removeChild(lis1[4]);
+         	 ul[0].style.marginLeft=0;
+         });
+       	 i=0
+       }else{
+       	 startMove(ul[0],-i*906,"marginLeft")
+       }
+
+    
+     // ul[0].style.marginLeft=-i*906+"px"
+
+
+      }
+
+
+   setInterval(auto,2000)		
+
+
+	</script>
+</body>
+</html>
